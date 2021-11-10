@@ -9,35 +9,25 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../Hooks/Auth/useAuth';
 const Login = () => {
+
     const Item = styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
       }));
-      const [logindata,SetLoginData]=useState({});
-    //   const [value,setValue]=useState({});
 
-    //     const handlingSubmit =e=>{
-    //       e.preventDefault();
-    //        console.log(value)
-    //   }
-    // //   setting input value taker 
-    //   const handlingInput =e=>{
-    // //   const field =e.target.name;
-    // //   const value =e.target.value;
-    //   const field=e.target.name;
-    //   const value=e.target.value;
-    //   const newLoginData={...value};
-    //   newLoginData[field]=value;
-    //   setValue(newLoginData)
-    //   }+
-    const handlingSubmit=e=>{
+const [logindata,SetLoginData]=useState({});
+const {emailLogin} =useAuth();
+const location=useLocation();
+const history=useHistory();
+const handlingSubmit=e=>{
         e.preventDefault();
         console.log(logindata);
-      
+        emailLogin(logindata.email,logindata.password,history,location)
         // PasswordSignIn(logindata.email,logindata.password,history,location)
     }
     const handlingOnChange=e=>{

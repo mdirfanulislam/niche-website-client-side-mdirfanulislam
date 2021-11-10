@@ -2,12 +2,13 @@ import React from 'react';
 import Footer from '../../Components/Footer/Footer';
 import Navigation from '../../Components/Navigation/Navigation';
 import NagigationTopForUnique from './../../Components/Navigation/NagigationTopForUnique';
+import MainDashboard from './MainDashboard';
 
 const Dashboard = () => {
     return (
         <div>
            <NagigationTopForUnique></NagigationTopForUnique>
-            <h3> this is dashboard</h3>
+           <MainDashboard></MainDashboard>
             <Footer></Footer>
         </div>
     );

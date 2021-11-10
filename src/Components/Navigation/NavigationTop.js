@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Pages/Hooks/Auth/useAuth';
 const NavigationTop = () => {
+  const {user,signOutUser}=useAuth()
     return (
         <div>
              <nav class="navbar fixed-top navbar-expand-lg navbar-lightt   bg-lightt">
@@ -22,22 +24,20 @@ const NavigationTop = () => {
         <li class="nav-item">
         <Link to="/dashboard" class="nav-link active" aria-current="page">Dashboard</Link>
         </li>
-        {/* <li class="nav-item">
-          <a class="nav-link" href="#">My orders</a>
-        </li> */}
+      
        
       </ul>
-      {/* <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      
-      </form> */}
-        <li class="nav-item listed">
-        <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
-        </li>
-        <li class="nav-item listed">
-          <span> My name</span>
-        </li>
+   
+      { !user?.email ? <li class="nav-item listed">
+   <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
+   </li> :  <li class="nav-item listed">
+   <Link to="/login"  class="nav-link active" aria-current="page" onClick={signOutUser}>Logout</Link>
+   </li> }
+ {
+   user?.email &&   <li class="nav-item listed">
+     <span> Logged in as : {user.email}</span>
+   </li>
+ }
        
         
 

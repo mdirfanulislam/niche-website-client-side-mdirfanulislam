@@ -6,9 +6,13 @@ import Explore from './Pages/Explore/Explore';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
+import AuthProvider from './Pages/Hooks/Auth/AuthProvider';
+import Purchase from './Pages/Purchase/Purchase';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 function App() {
   return (
     <div className="App" style={{overflow:'hidden'}}>
+      <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -29,16 +33,20 @@ function App() {
           <Route exact path="/register">
           <Register></Register>
           </Route>
+          <PrivateRoute exact path="/purchase/:id">
+          <Purchase></Purchase>
+          </PrivateRoute>
 
-          <Route exact path="/dashboard">
+          <PrivateRoute exact path="/dashboard">
          <Dashboard></Dashboard>
-          </Route>
+          </PrivateRoute>
 
           <Route exact path="*">
          <None></None>
           </Route>
         </Switch>
       </Router>
+      </AuthProvider>
     </div>
   );
 }

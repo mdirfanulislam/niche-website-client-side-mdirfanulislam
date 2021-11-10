@@ -9,7 +9,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import useAuth from '../Hooks/Auth/useAuth';
 const Register = () => {
     const Item = styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
@@ -17,26 +18,13 @@ const Register = () => {
         textAlign: 'center',
         color: theme.palette.text.secondary,
       }));
+      const {emailNewAccount}=useAuth()
       const [logindata,SetLoginData]=useState({});
-    //   const [value,setValue]=useState({});
-
-    //     const handlingSubmit =e=>{
-    //       e.preventDefault();
-    //        console.log(value)
-    //   }
-    // //   setting input value taker 
-    //   const handlingInput =e=>{
-    // //   const field =e.target.name;
-    // //   const value =e.target.value;
-    //   const field=e.target.name;
-    //   const value=e.target.value;
-    //   const newLoginData={...value};
-    //   newLoginData[field]=value;
-    //   setValue(newLoginData)
-    //   }+
+      const history=useHistory()
     const handlingSubmit=e=>{
         e.preventDefault();
-        console.log(logindata);
+        emailNewAccount(logindata.email,logindata.password,logindata.displayName,history)
+        // console.log(logindata);
       
         // PasswordSignIn(logindata.email,logindata.password,history,location)
     }

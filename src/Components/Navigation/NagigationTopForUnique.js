@@ -2,7 +2,9 @@ import React from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import './NavigationTopForUnique.css'
+import useAuth from '../../Pages/Hooks/Auth/useAuth';
 const NagigationTopForUnique = () => {
+  const {user,signOutUser}=useAuth()
     return (
         <div>
         <nav class="navbar  navbar-expand-lg navbar-lightt   bg-lighttt">
@@ -29,12 +31,16 @@ const NagigationTopForUnique = () => {
   
  </ul>
 
-   <li class="nav-item listed">
+  { !user?.email ? <li class="nav-item listed">
    <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
+   </li> :  <li class="nav-item listed">
+   <Link to="/login" class="nav-link active" aria-current="page" onClick={signOutUser}>Logout</Link>
+   </li> }
+ {
+   user?.email &&   <li class="nav-item listed">
+     <span> Logged in as : {user.email}</span>
    </li>
-   <li class="nav-item listed">
-     <span> My name</span>
-   </li>
+ }
   
    
 

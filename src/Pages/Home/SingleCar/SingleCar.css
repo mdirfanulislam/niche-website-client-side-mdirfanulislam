@@ -1,0 +1,13 @@
+.singleCar{
+    border: 1px solid rgb(85, 85, 85);
+    border-radius: 10px;
+ 
+    /* padding: 20px; */
+    background-image: linear-gradient(to right, rgb(255, 158, 30) , rgb(20, 162, 245));
+    overflow: hidden;
+    
+}
+.singleCar:hover{
+    /* background-image: linear-gradient(to right, rgb(210, 231, 235) , rgb(11, 255, 182)); */
+    transform: scale(1.03);
+}

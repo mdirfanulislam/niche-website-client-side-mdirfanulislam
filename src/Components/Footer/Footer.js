@@ -5,8 +5,8 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import logo from '../../images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import {faFacebook,faTwitter,faWhatsapp,faInstagram,faReddit } from '@fortawesome/free-brands-svg-icons';
+import {faFacebook,faTwitter,faWhatsapp,faInstagram,faReddit} from '@fortawesome/free-brands-svg-icons';
+import './Footer.css';
 
 const Footer = () => {
 
@@ -22,9 +22,9 @@ const Footer = () => {
       }
 
     return (
-        <div className="mt-5" style={{backgroundColor:"black", color:"white"}}>
+        <div className="mt-5" >
             
-            <Box sx={{ flexGrow: 1 }}>
+            <Box style={{backgroundColor:"black", color:"white"}} sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={4} lg={4}>
         <img src={logo} alt="" width='50%' />
@@ -47,7 +47,11 @@ const Footer = () => {
         
       </Grid>
     </Box>
+ <div className="footer">
+    <h4> 2021 - CarHub, A Division of Mullen Technologies, Inc. All Rights Reserve.</h4>
         </div>
+    </div>
+       
     );
 };
 export default Footer;

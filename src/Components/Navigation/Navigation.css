@@ -1,0 +1,16 @@
+.bg-lightt{
+    background-color:#d1d0d08e;
+    color: white;
+}
+.navbar-lightt{
+    color: white;
+    
+}
+.navbar-lightt a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+.listed{
+    list-style: none;
+}

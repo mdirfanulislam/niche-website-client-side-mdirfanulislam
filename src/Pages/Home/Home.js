@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
+import HomeExtra from './SingleCar/HomeExtra/HomeExtra';
 const Home = () => {
     const [cars,setCars]=useState([]);
     useEffect(()=>{
@@ -25,6 +26,7 @@ const Home = () => {
     return (
         <div style={{color:"black", backgroundColor:'white' ,overflow:'hidden'}}>
             <Navigation></Navigation>
+            <HomeExtra></HomeExtra>
             <h2> Our top rated Cars Choosen by the our customers . </h2>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

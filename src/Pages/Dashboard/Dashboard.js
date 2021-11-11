@@ -9,7 +9,7 @@ const Dashboard = () => {
         <div>
            <NagigationTopForUnique></NagigationTopForUnique>
            <MainDashboard></MainDashboard>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

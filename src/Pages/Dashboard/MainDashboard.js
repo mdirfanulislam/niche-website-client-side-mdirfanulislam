@@ -8,19 +8,19 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+import { BrowserRouter as Router,Switch, Route, Link,useParams,useRouteMatch} from "react-router-dom";
+import { Button } from '@mui/material';
+import Pay from './User/Pay';
 const drawerWidth = 240;
 
 function MainDashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -29,28 +29,16 @@ function MainDashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+    
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+         <Link to="/"><Button variant="contained" color="success" sx={{mx:2, my:1}}>Home</Button> </Link>
+      <Link to={`${url}`}><Button variant="contained" color="success" sx={{mx:2, my:1}}>Dashboard</Button> </Link>
+      <Link to={`${url}/pay`}><Button variant="contained" color="success" sx={{mx:2, my:1}}>pay</Button> </Link><br />
+      <Link to={`${url}/review`}><Button variant="contained" color="success" sx={{mx:2, my:1}}>Review</Button> </Link>
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+     
     </div>
   );
 
@@ -77,7 +65,7 @@ function MainDashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+           Your DashBoard
           </Typography>
         </Toolbar>
       </AppBar>
@@ -118,13 +106,15 @@ function MainDashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-       
-        <Typography paragraph>
-         
-        </Typography>
-        <Typography paragraph>
-         
-        </Typography>
+        <Switch>
+        <Route exact path={path}>
+        <h3> Choice something </h3>
+        </Route>
+        <Route path={`${path}/pay`}>
+         <Pay></Pay>
+        </Route>
+        
+      </Switch>
       </Box>
     </Box>
   );

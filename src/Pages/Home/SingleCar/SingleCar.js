@@ -10,7 +10,7 @@ const SingleCar = (props) => {
      history.push(`/purchase/${_id}`)
  }
     return (
-         <Grid item sx={{marginLeft:'65px',marginTop:'15px', padding:'15px'}} xs={12} sm={12} md={5} lg={5} className="singleCar">
+         <Grid item sx={{margin:'15px auto' ,padding:'20px', alignItems:"center" , overflow:'hidden'}} xs={12} sm={12} md={5} lg={5} className="singleCar">
             <img src={image} className="img-fluid" alt="" />
             <h3> {name}</h3>
             <h5>Have a look on it: {description.slice(0,150)}</h5>

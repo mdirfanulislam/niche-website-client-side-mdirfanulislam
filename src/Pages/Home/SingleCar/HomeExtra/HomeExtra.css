@@ -1,0 +1,10 @@
+.boxstyle{
+    background-image: linear-gradient(to right, rgb(245, 217, 246) , rgb(163, 203, 226));
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+.boxstyle img{
+    border-radius: 10px;
+}

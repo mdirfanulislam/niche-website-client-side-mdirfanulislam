@@ -6,35 +6,35 @@ const NavigationTop = () => {
   const {user,signOutUser}=useAuth()
     return (
         <div>
-             <nav class="navbar fixed-top navbar-expand-lg navbar-lightt   bg-lightt">
-  <div class="container-fluid">
+             <nav className="navbar fixed-top navbar-expand-lg navbar-lightt   bg-lightt">
+  <div className="container-fluid">
   <img src={logo} alt="" width="120" height="24" className="mx-4"/>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
           
-          <Link to="/home" class="nav-link active" aria-current="page">Home</Link>
+          <Link to="/home" className="nav-link active" aria-current="page">Home</Link>
         </li>
-        <li class="nav-item">
-        <Link to="/explore" class="nav-link active" aria-current="page">Explore</Link>
+        <li className="nav-item">
+        <Link to="/explore" className="nav-link active" aria-current="page">Explore</Link>
         </li>
-        <li class="nav-item">
-        <Link to="/dashboard" class="nav-link active" aria-current="page">Dashboard</Link>
+        <li className="nav-item">
+        <Link to="/dashboard" className="nav-link active" aria-current="page">Dashboard</Link>
         </li>
       
        
       </ul>
    
-      { !user?.email ? <li class="nav-item listed">
-   <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
-   </li> :  <li class="nav-item listed">
-   <Link to="/login"  class="nav-link active" aria-current="page" onClick={signOutUser}>Logout</Link>
+      { !user?.email ? <li className="nav-item listed">
+   <Link to="/login" className="nav-link active" aria-current="page">Login</Link>
+   </li> :  <li className="nav-item listed">
+   <Link to="/login"  className="nav-link active" aria-current="page" onClick={signOutUser}>Logout</Link>
    </li> }
  {
-   user?.email &&   <li class="nav-item listed">
+   user?.email &&   <li className="nav-item listed">
      <span> Logged in as : {user.email}</span>
    </li>
  }

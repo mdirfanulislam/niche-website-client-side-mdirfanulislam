@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import Footer from '../../Components/Footer/Footer';
 import Navigation from './../../Components/Navigation/Navigation';
 import SingleCar from './SingleCar/SingleCar';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import HomeExtra from './SingleCar/HomeExtra/HomeExtra';
@@ -15,14 +13,7 @@ const Home = () => {
         .then(res=>res.json())
         .then(data=>setCars(data.slice(0,6)))
     },[])
-    const Item = styled(Paper)(({ theme }) => ({
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
-
-    
+ 
     return (
         <div style={{color:"black", backgroundColor:'white' ,overflow:'hidden'}}>
             <Navigation></Navigation>

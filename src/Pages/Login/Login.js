@@ -26,7 +26,7 @@ const location=useLocation();
 const history=useHistory();
 const handlingSubmit=e=>{
         e.preventDefault();
-        console.log(logindata);
+        // console.log(logindata);
         emailLogin(logindata.email,logindata.password,history,location)
         // PasswordSignIn(logindata.email,logindata.password,history,location)
     }

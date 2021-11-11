@@ -1,0 +1,8 @@
+.details{
+    border: 2px solid black;
+    box-shadow: 5px;
+    background-color: rgb(240, 235, 228);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 5px;
+}

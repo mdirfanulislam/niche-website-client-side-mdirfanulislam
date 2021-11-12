@@ -22,7 +22,7 @@ const Login = () => {
       }));
 
 const [logindata,SetLoginData]=useState({});
-const {emailLogin, success} =useAuth();
+const {emailLogin, success,error} =useAuth();
 const location=useLocation();
 const history=useHistory();
 const handlingSubmit=e=>{
@@ -62,6 +62,9 @@ const handlingSubmit=e=>{
       <Button variant="contained" color="success" type="submit">Login</Button> <br />
        { 
        success && <Alert severity="success">Login successfully </Alert> 
+      }
+       { 
+      error && <Alert severity="success"> {error} </Alert> 
       }
           </Typography>
           <Typography>

@@ -28,6 +28,7 @@ import Review from './User/Review';
 import AddAProducts from './User/AddAProducts';
 import ManageAllOrders from './User/ManageAllOrders';
 import ManageProducts from './User/ManageProducts';
+import AdminRoute from './../PrivateRoute/AdminRoute';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -39,22 +40,32 @@ function Dashboard(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const {signOutUser}=useAuth()
-
+  const {signOutUser,admin}=useAuth()
+  console.log("admin", admin)
+    
   const drawer = (
     <div>
-       
+     
       <Toolbar />
       <Link to="/home"><Button variant="contained" color="success" sx={{mx:2, my:1}}>Home</Button> </Link>
-      <Link to={`${url}`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Dashboard</Button> </Link>
+      {
+        !admin ? <Box>
+          <Link to={`${url}`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Dashboard</Button> </Link>
       <Link to={`${url}/myOrder`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>My Order</Button> </Link>
       <Link to={`${url}/review`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Review</Button> </Link>
-     <Box>  <Link to={`${url}/payment`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Payment</Button> </Link>
-      <Link to={`${url}/addAdmin`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Add Admin</Button> </Link>
+      <Link to={`${url}/payment`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Payment</Button> </Link>
+        </Box> :
+      <Box> 
+     <Link to={`${url}/addAdmin`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Add Admin</Button> </Link>
       <Link to={`${url}/addProducts`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Add A Products</Button> </Link>
       <Link to={`${url}/manageAllOrders`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Manage All Orders</Button> </Link>
       <Link to={`${url}/manageProducts`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>ManageProducts</Button> </Link>
-      </Box>
+        </Box>
+      }
+      
+      
+      
+      
       <Divider />
       
      <Button variant="contained" onClick={signOutUser} color="success" sx={{mx:2 , my:1}}>Logout</Button>
@@ -130,10 +141,8 @@ function Dashboard(props) {
         <Switch>
         <Route exact path={path}>
        <h3> Hello I am checking your authentification here please wait here some moment for the confirmation</h3>
-        </Route>s
-        <Route exact path={`${path}/addAdmin`}>
-        <AddAdmin></AddAdmin>
         </Route>
+       
         <Route exact path={`${path}/payment`}>
         <Pay></Pay>
         </Route>
@@ -142,17 +151,21 @@ function Dashboard(props) {
         </Route>
         <Route exact path={`${path}/review`}>
         <Review></Review>
-        </Route>
-        <Route exact path={`${path}/addProducts`}>
+        </Route> 
+        <AdminRoute exact path={`${path}/addAdmin`}>
+        <AddAdmin></AddAdmin>
+        </AdminRoute>
+        <AdminRoute exact path={`${path}/addProducts`}>
         <AddAProducts></AddAProducts>
-        </Route>
-        <Route exact path={`${path}/manageAllOrders`}>
+        </AdminRoute>
+        <AdminRoute exact path={`${path}/manageAllOrders`}>
         <ManageAllOrders></ManageAllOrders>
-        </Route>
-      </Switch>
-        <Route exact path={`${path}/manageProducts`}>
+        </AdminRoute>
+        <AdminRoute exact path={`${path}/manageProducts`}>
         <ManageProducts></ManageProducts>
-        </Route>
+        </AdminRoute>
+      </Switch>
+        
       </Box>
     </Box>
   );

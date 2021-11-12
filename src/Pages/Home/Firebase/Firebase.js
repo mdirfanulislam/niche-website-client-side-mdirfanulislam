@@ -2,6 +2,7 @@ import initiatingFirebase from "./firebase.init";
 import { getAuth, createUserWithEmailAndPassword, updateProfile , signInWithEmailAndPassword , signOut , onAuthStateChanged  } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
+import { formControlLabelClasses } from "@mui/material";
 
 initiatingFirebase();
 
@@ -11,6 +12,8 @@ const useFirebase=()=>{
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(true);
     const [success,setSuccess]=useState(false);
+    const [admin,setAdmin]=useState(false);
+
 
     const emailNewAccount=(email,password,name,history)=>{
       setLoading(true)
@@ -96,6 +99,14 @@ const useFirebase=()=>{
           });
     },[]);
 
+
+   useEffect(()=>{
+     fetch(`http://localhost:4000/admins/${user.email}`)
+     .then(res=>res.json())
+     .then(data=>{
+     setAdmin(data.admin)
+     })
+   },[user.email])
    
     const saveUserData=(email,displayname,method)=>{
       const user={email,displayName:displayname};
@@ -111,7 +122,8 @@ const useFirebase=()=>{
     return{
         emailNewAccount,emailLogin,
          signOutUser,user,error,
-         loading,success
+         loading,success,
+         admin
     }
 }
 export default useFirebase;

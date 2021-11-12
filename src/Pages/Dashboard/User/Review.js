@@ -1,9 +1,17 @@
 import React from 'react';
-
+import { useForm } from "react-hook-form";
 const Review = () => {
+    const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
     return (
         <div>
-            <h3> This is review page my boy </h3>
+              <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name", { required: true })} />
+      <input {...register("description", { required: true })} />
+      <input {...register("rating", { required: true })} />
+     
+      <input type="submit" />
+    </form>
         </div>
     );
 };

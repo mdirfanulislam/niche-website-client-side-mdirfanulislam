@@ -22,6 +22,7 @@ const Purchase = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data =>{
         // console.log(data)
+        data.carName=car.name;
         fetch('http://localhost:4000/users',{
             method:"POST",
             headers:{

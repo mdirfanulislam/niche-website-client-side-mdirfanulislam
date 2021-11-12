@@ -15,29 +15,14 @@ const Home = () => {
         .then(data=>setCars(data.slice(0,6)))
     },[]);
 
-    const [reviews,setReviews]=useState('')
- const allreview =[
-     {
-         name:'Abdul waled ',
-         rating:5,
-         description:' very well and satisfactionary service serveb by them '
-        },
-     {
-         name:'Abdul waled ',
-         rating:5,
-         description:' very well and satisfactionary service serveb by them '
-        },
-     {
-         name:'Abdul waled ',
-         rating:4,
-         description:' very well and satisfactionary service serveb by them '
-        },
-     {
-         name:'Abdul waled ',
-         rating:5,
-         description:' very well and satisfactionary service serveb by them '
-        }
- ]
+    const [reviews,setReviews]=useState([])
+     useEffect(()=>{
+        fetch('http://localhost:4000/reviews')
+        .then(res=>res.json())
+        .then(data=>setReviews(data))
+        
+     },[])
+ 
     return (
         <div style={{color:"black", backgroundColor:'white' ,overflow:'hidden'}}>
             <Navigation></Navigation>
@@ -58,7 +43,7 @@ const Home = () => {
         
 
       {
-          allreview.map(data=><Review data={data}></Review>)
+          reviews.map(data=><Review data={data}></Review>)
       }  
         
       </Grid>

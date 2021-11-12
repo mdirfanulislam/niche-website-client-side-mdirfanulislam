@@ -3,12 +3,13 @@ import { BrowserRouter as Router,Switch,  Route} from "react-router-dom";
 import Home from './Pages/Home/Home';
 import None from './Pages/None/None';
 import Explore from './Pages/Explore/Explore';
-import Dashboard from './Pages/Dashboard/Dashboard';
+
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import AuthProvider from './Pages/Hooks/Auth/AuthProvider';
 import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
 function App() {
   return (
     <div className="App" style={{overflow:'hidden'}}>
@@ -37,7 +38,7 @@ function App() {
           <Purchase></Purchase>
           </PrivateRoute>
 
-          <PrivateRoute exact path="/dashboard">
+          <PrivateRoute  path="/dashboard">
          <Dashboard></Dashboard>
           </PrivateRoute>
 

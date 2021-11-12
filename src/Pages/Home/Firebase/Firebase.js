@@ -19,15 +19,13 @@ const useFirebase=()=>{
         // setUser(userCredential.user)
         const newUser={email,displayName:name}
         setUser(newUser)
-        // console.log(newUser)
         
         history.replace('/')
-        updateProfile(auth.currentUser, {
-            displayName:name}).then(() => {
+        updateProfile(auth.currentUser,
+           {displayName:name}).then(() => {
             // Profile updated!
             // ...
-            setUser(user);
-            console.log(user)
+            setUser(user)
           }).catch((error) => {
             setError(error)
           });

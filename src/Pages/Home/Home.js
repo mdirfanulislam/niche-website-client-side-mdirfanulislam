@@ -6,14 +6,38 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import HomeExtra from './SingleCar/HomeExtra/HomeExtra';
+import Review from './Review/Review';
 const Home = () => {
     const [cars,setCars]=useState([]);
     useEffect(()=>{
         fetch('http://localhost:4000/cars')
         .then(res=>res.json())
         .then(data=>setCars(data.slice(0,6)))
-    },[])
- 
+    },[]);
+
+    const [reviews,setReviews]=useState('')
+ const allreview =[
+     {
+         name:'Abdul waled ',
+         rating:5,
+         description:' very well and satisfactionary service serveb by them '
+        },
+     {
+         name:'Abdul waled ',
+         rating:5,
+         description:' very well and satisfactionary service serveb by them '
+        },
+     {
+         name:'Abdul waled ',
+         rating:4,
+         description:' very well and satisfactionary service serveb by them '
+        },
+     {
+         name:'Abdul waled ',
+         rating:5,
+         description:' very well and satisfactionary service serveb by them '
+        }
+ ]
     return (
         <div style={{color:"black", backgroundColor:'white' ,overflow:'hidden'}}>
             <Navigation></Navigation>
@@ -27,7 +51,19 @@ const Home = () => {
         
       </Grid>
     </Box>
+     {/* here I am gonna put my review system  */}
            
+     <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        
+
+      {
+          allreview.map(data=><Review data={data}></Review>)
+      }  
+        
+      </Grid>
+    </Box>
+
             <Footer></Footer>
         </div>
     );

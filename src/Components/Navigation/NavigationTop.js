@@ -35,7 +35,7 @@ const NavigationTop = () => {
    </li> }
  {
    user?.email &&   <li className="nav-item listed">
-     <span> Logged in as : {user.email}</span>
+     <span> Logged in as : {user.displayName}</span>
    </li>
  }
        

@@ -39,7 +39,7 @@ const MyOrder = () => {
                   <h4>{data.email}</h4>
                   <h2> {data.carName}</h2>
                   <h3> id :{data._id}</h3>
-                    
+                    <button> {data.status}</button>
                   <button onClick={()=>handlingDeleting(data._id)}> Remove </button>
               </div> 
               )

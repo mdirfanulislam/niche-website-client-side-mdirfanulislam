@@ -23,6 +23,7 @@ const Purchase = () => {
     const onSubmit = data =>{
         // console.log(data)
         data.carName=car.name;
+        data.status="pending"
         fetch('http://localhost:4000/users',{
             method:"POST",
             headers:{

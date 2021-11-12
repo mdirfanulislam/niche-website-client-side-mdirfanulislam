@@ -9,7 +9,7 @@ import SingleCar from './../Home/SingleCar/SingleCar';
 const Explore = () => {
     const [cars,setCars]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:4000/cars')
+        fetch('http://localhost:4000/explore')
         .then(res=>res.json())
         .then(data=>setCars(data))
     },[])

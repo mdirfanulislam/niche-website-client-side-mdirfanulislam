@@ -7,7 +7,7 @@ initiatingFirebase();
 
 const useFirebase=()=>{
     const auth = getAuth();
-    const [user,setUser]=useState('');
+    const [user,setUser]=useState({});
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(true);
     const [success,setSuccess]=useState(false);
@@ -17,10 +17,14 @@ const useFirebase=()=>{
         createUserWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
      // Signed in 
-        // setUser(userCredential.user)
+       
+        
         const newUser={email,displayName:name}
+
         setUser(newUser)
+
         setSuccess(true)
+       
         history.replace('/')
         updateProfile(auth.currentUser,
            {displayName:name}).then(() => {
@@ -29,7 +33,8 @@ const useFirebase=()=>{
             setUser(user)
           }).catch((error) => {
             setError(error)
-          });
+          })
+          saveUserData(email,name,"POST")
       // ...
       })
      .catch((error) => {
@@ -64,7 +69,8 @@ const useFirebase=()=>{
       setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
-            setUser({})
+            setUser({});
+            setSuccess(false)
           }).catch((error) => {
             // An error happened.
             setError('')
@@ -88,7 +94,20 @@ const useFirebase=()=>{
             setLoading(false)
 
           });
-    },[])
+    },[]);
+
+   
+    const saveUserData=(email,displayname,method)=>{
+      const user={email,displayName:displayname};
+      fetch('http://localhost:4000/registerUsers',{
+        method:method,
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(user)
+      })
+    }
+    
     return{
         emailNewAccount,emailLogin,
          signOutUser,user,error,

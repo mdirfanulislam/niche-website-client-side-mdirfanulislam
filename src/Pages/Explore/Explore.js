@@ -19,7 +19,7 @@ const Explore = () => {
             <h2> Explore our shop online </h2>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-         {cars.map(data=><SingleCar data={data} ></SingleCar>)}  
+         {cars.map(data=><SingleCar key={data._id} data={data} ></SingleCar>)}  
       </Grid>
     </Box>
             <Footer></Footer>

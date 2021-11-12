@@ -10,6 +10,7 @@ const useFirebase=()=>{
     const [user,setUser]=useState('');
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(true);
+    const [success,setSuccess]=useState(false);
 
     const emailNewAccount=(email,password,name,history)=>{
       setLoading(true)
@@ -19,7 +20,7 @@ const useFirebase=()=>{
         // setUser(userCredential.user)
         const newUser={email,displayName:name}
         setUser(newUser)
-        
+        setSuccess(true)
         history.replace('/')
         updateProfile(auth.currentUser,
            {displayName:name}).then(() => {
@@ -48,7 +49,8 @@ const useFirebase=()=>{
     // Signed in 
       const destiny =location?.state?.from;
       history.push(destiny)
-    setUser(userCredential.user)
+    setUser(userCredential.user);
+    setSuccess(true)
     // ...
   })
   .catch((error) => {
@@ -90,7 +92,7 @@ const useFirebase=()=>{
     return{
         emailNewAccount,emailLogin,
          signOutUser,user,error,
-         loading
+         loading,success
     }
 }
 export default useFirebase;

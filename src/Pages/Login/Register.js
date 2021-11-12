@@ -9,9 +9,10 @@ import { useState } from 'react';
 import { Typography } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../Hooks/Auth/useAuth';
+import Alert from '@mui/material/Alert';
 const Register = () => {
  
-      const {emailNewAccount}=useAuth()
+      const {emailNewAccount, success}=useAuth()
       const [logindata,SetLoginData]=useState({});
       const history=useHistory()
     const handlingSubmit=e=>{
@@ -40,7 +41,7 @@ const Register = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={5} lg={5}>
         <Typography variant="h4" gutterBottom component="div">
-      Please Login Here   <br/>
+      Please Register  Here   <br/>
       </Typography>
      <form onSubmit={handlingSubmit}>
      <Typography>
@@ -52,14 +53,16 @@ const Register = () => {
       <Typography>
       <TextField  onChange={handlingOnChange} sx={{width:'60%'}} id="filled-basic" name="password" label="Your password" variant="outlined" />
       <br />
-      <Button variant="contained" color="success" type="submit">Login</Button>
+      <Button variant="contained" color="success" type="submit">Register</Button><br />
+      { 
+      success && <Alert severity="success">user register  in successfully </Alert> 
+      }
           </Typography>
           <Typography>
           <h3> Already User?  <Link to="/login"> Login here please </Link> </h3>
           </Typography>
           <Typography>
-          {/* <h3> Or Sign In with google here  </h3> */}
-          {/* <Button variant="contained" onClick={handlingGoogleSignIn} >Login</Button> */}
+          
           </Typography>
      </form>
         </Grid>

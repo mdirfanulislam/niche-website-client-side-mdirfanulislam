@@ -17,6 +17,7 @@ const Review = () => {
     })
        .then(res=>res.json())
        .then(data=>{
+         
          if(data.insertedId){
            alert(' WE have got this');
           reset()

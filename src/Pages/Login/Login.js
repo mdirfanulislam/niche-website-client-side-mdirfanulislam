@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Typography } from '@mui/material';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../Hooks/Auth/useAuth';
+import Alert from '@mui/material/Alert';
 const Login = () => {
 
     const Item = styled(Paper)(({ theme }) => ({
@@ -21,7 +22,7 @@ const Login = () => {
       }));
 
 const [logindata,SetLoginData]=useState({});
-const {emailLogin} =useAuth();
+const {emailLogin, success} =useAuth();
 const location=useLocation();
 const history=useHistory();
 const handlingSubmit=e=>{
@@ -58,7 +59,10 @@ const handlingSubmit=e=>{
       <Typography>
       <TextField  onChange={handlingOnChange} sx={{width:'60%'}} id="filled-basic" name="password" label="Your password" variant="outlined" />
       <br />
-      <Button variant="contained" color="success" type="submit">Login</Button>
+      <Button variant="contained" color="success" type="submit">Login</Button> <br />
+       { 
+       success && <Alert severity="success">Login successfully </Alert> 
+      }
           </Typography>
           <Typography>
           <h3>New user?  <Link to="/register"> Register here please </Link> </h3>

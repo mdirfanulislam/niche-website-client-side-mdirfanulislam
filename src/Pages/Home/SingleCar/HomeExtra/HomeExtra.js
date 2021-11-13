@@ -15,8 +15,8 @@ const HomeExtra = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }} >
-            <h2  className='my-3 text-success'> Finalize your Idea With us.</h2>
-        <Grid container className='boxstyle' spacing={2} sx={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:"10px"}}>
+            <h2  className='my-5 text-success'> Finalize your Idea With us.</h2>
+        <Grid container className='boxstyle my-5' spacing={2} sx={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:"10px"}}>
           <Grid item xs={12} sm={12} md={7} lg={7}>
            <img className='img-fluid' src={photo} alt="" />
           </Grid>

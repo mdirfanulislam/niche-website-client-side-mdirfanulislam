@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import imbb from '../../../images/imbbb.jpg'
 const AddAProducts = () => {
     const { register, handleSubmit,reset } = useForm();
     const [newProduct,setNewProduct]=useState(false)
@@ -18,8 +19,9 @@ const AddAProducts = () => {
             },
             body:JSON.stringify(data)
         })
-        .then(res=>res.json)
+        .then(res=>res.json())
         .then(data=>{
+            // console.log(data)
             if(data.insertedId){
                 setNewProduct(true);
                 reset()
@@ -35,9 +37,10 @@ const AddAProducts = () => {
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}  sx={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:"10px"}}>
         <Grid item xs={12} sm={12} md={6} lg={6}>
-        <img  className="img-fluid" alt="This is an image " />
+        <img  src={imbb} className="img-fluid" alt="This is an image " />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6}>
+            <h3 className="my-2"> Add your products information here </h3>
         <form onSubmit={handleSubmit(onSubmit)}>
       <input className="w-75 mb-2"  placeholder="product name" {...register("name", { required: true })} /> <br />
       <input className="w-75 mb-2"  placeholder="description" {...register("description", { required: true})} /> <br />
@@ -46,12 +49,12 @@ const AddAProducts = () => {
       
       <input type="submit" value='submit' />
     </form>
-
+{newProduct &&<Alert severity="success"> New product added successfully  </Alert>  }
         </Grid>
        
       </Grid>
     </Box>
-    {newProduct &&<Alert severity="success"> New product added successfully  </Alert>  }
+    
         </div>
     );
 };

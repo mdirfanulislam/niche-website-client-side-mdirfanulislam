@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import { useState } from 'react';
 import HomeExtra from './SingleCar/HomeExtra/HomeExtra';
 import Review from './Review/Review';
+import { Container } from '@mui/material';
 const Home = () => {
     const [cars,setCars]=useState([]);
     useEffect(()=>{
@@ -26,7 +27,7 @@ const Home = () => {
     return (
         <div style={{color:"black", backgroundColor:'white' ,overflow:'hidden'}}>
             <Navigation></Navigation>
-            <HomeExtra></HomeExtra>
+            <Container><HomeExtra></HomeExtra></Container>
             <h2> Our top rated Cars Choosen by the our customers . </h2>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -37,17 +38,18 @@ const Home = () => {
       </Grid>
     </Box>
      {/* here I am gonna put my review system  */}
-           
+           <h1 className="my-5 text-info fs-italic"> Please Look what our customer say about us </h1>
+     <Container>
      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container rowSpacing={2}  >
         
-
       {
           reviews.map(data=><Review data={data}></Review>)
       }  
         
       </Grid>
     </Box>
+     </Container>
 
             <Footer></Footer>
         </div>

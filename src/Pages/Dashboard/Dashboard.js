@@ -40,7 +40,7 @@ function Dashboard(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const {signOutUser,admin}=useAuth()
+  const {signOutUser,admin,user}=useAuth()
   console.log("admin", admin)
     
   const drawer = (
@@ -97,7 +97,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Navbar 
+             {admin && <h3>Admin Name : {user.displayName}</h3> }
           </Typography>
         </Toolbar>
       </AppBar>

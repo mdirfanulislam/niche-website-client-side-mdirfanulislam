@@ -31,7 +31,7 @@ const Review = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
       <input className="mb-2" placeholder="your name" defaultValue={user.displayName} {...register("name", { required: true })} /> <br />
       <input  className="mb-2" placeholder=" your experience" {...register("description", { required: true })} /> <br />
-      <input  className="mb-2" placeholder="Rating" {...register("rating", { required: true })} /> <br />
+      <input  className="mb-2" placeholder="Rating" type="number" {...register("rating",{ min: 0, max: 5, required:true })} /> <br />
      
       <input type="submit" value="submit" />
     </form>

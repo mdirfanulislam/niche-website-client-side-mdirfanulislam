@@ -1,4 +1,7 @@
 .reviewstyle{
-    background-image: linear-gradient(to right, rgb(232, 243, 84) , rgb(221, 149, 243));
-
+    background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(236, 228, 238));
+    width: 50%;
+}
+.colorr{
+    color: gold;
 }

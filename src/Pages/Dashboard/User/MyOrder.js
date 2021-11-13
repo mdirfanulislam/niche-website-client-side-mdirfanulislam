@@ -84,27 +84,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
               <StyledTableCell align="right"> {row.carName}</StyledTableCell>
               <StyledTableCell align="right"> <button onClick={()=>handlingDeleting(row._id)}> Delete   </button> </StyledTableCell>
               <StyledTableCell align="right"> <button > {row.status}  </button> </StyledTableCell>
-              {/* <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
+             
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
-
-
-          {/* {
-              orders.map(data=> <div  className="divorder">
-                  <h2>{data.name}</h2>
-                  <h4>{data.email}</h4>
-                  <h2> {data.carName}</h2>
-                  <h3> id :{data._id}</h3>
-                    <button> {data.status}</button>
-                  <button onClick={()=>handlingDeleting(data._id)}> Remove </button>
-              </div> 
-              )
-          } */}
         </div>
     );
 };

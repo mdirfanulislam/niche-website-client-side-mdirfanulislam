@@ -6,7 +6,7 @@ import useAuth from './../Hooks/Auth/useAuth';
 const AdminRoute = ({ children, ...rest }) => {
     const {user,loading,admin}=useAuth()
     console.log(admin)
-    if(loading){return <CircularProgress />}
+    if(loading){return <CircularProgress  />}
     return (
         <Route
         {...rest}
@@ -16,7 +16,7 @@ const AdminRoute = ({ children, ...rest }) => {
           ) : (
             <Redirect
               to={{
-                pathname: "/dashboard",
+                pathname: "/login",
                 state: { from: location }
               }}
             />

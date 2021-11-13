@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Alert from '@mui/material/Alert';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -83,7 +82,7 @@ const ManageAllOrders = () => {
       }));
     return (
         <div>
-          <h3> Here you can manage all of your order {orders.length} </h3>
+          <h3> Here you can manage all of your order. Total Order:  {orders.length} </h3>
 
           <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">

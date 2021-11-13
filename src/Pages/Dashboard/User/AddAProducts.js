@@ -21,7 +21,7 @@ const AddAProducts = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            // console.log(data)
+          
             if(data.insertedId){
                 setNewProduct(true);
                 reset()

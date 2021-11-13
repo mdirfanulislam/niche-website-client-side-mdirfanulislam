@@ -63,7 +63,7 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <h3> Handle your products here {products.length} </h3>
+            <h3> Handle your products here. Total products:  {products.length} </h3>
 
             <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -72,8 +72,7 @@ const ManageProducts = () => {
             <StyledTableCell>Products Name</StyledTableCell>
             <StyledTableCell align="right">Price </StyledTableCell>
             <StyledTableCell align="right">Deletation</StyledTableCell>
-            {/* <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell> */}
+           
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,23 +83,13 @@ const ManageProducts = () => {
               </StyledTableCell>
               <StyledTableCell align="right">$ {row.price}</StyledTableCell>
               <StyledTableCell align="right"> <button onClick={()=>handlingDelete(row._id)}> Delete   </button> </StyledTableCell>
-              {/* <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
+              
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-            {/* {
-              products.map(data=> <div  className="divorder">
-                  <h2>{data.name}</h2>
-                  <h4>{data.email}</h4>
-                  <h2> {data.price}</h2>
-                  <h3> id :{data._id}</h3>
-                  <button onClick={()=>handlingDelete(data._id)}> Delete   </button>
-              </div> 
-              )
-          } */}
+            
         </div>
     );
 };

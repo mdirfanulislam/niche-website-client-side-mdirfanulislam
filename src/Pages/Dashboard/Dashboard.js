@@ -16,9 +16,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button  from '@mui/material/Button';
-// import DashboardHome from './DashboardHome';
-// import MakeAdmin from './MakeAdmin';
-// import AddDoctor from './AddDoctor';
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch} from "react-router-dom";
 import Pay from './User/Pay';
 import AddAdmin from './User/AddAdmin';
@@ -34,9 +31,7 @@ const drawerWidth = 240;
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-//   const [date,setDate]=React.useState(new Date())
   let { path, url } = useRouteMatch();
-//   const {admin}= useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -47,6 +42,8 @@ function Dashboard(props) {
     <div>
      
       <Toolbar />
+      {user.email && <h5>Email:{user.email} </h5> }
+      <Divider />
       <Link to="/home"><Button variant="contained" color="success" sx={{mx:2, my:1}}>Home</Button> </Link>
       {
         !admin ? <Box>
@@ -61,8 +58,6 @@ function Dashboard(props) {
       <Link to={`${url}/manageProducts`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>ManageProducts</Button> </Link>
         </Box>
       }
-      
-      
       
       
       <Divider />

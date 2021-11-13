@@ -64,7 +64,7 @@ const useFirebase=()=>{
       setLoading(true)
         signOut(auth).then(() => {
             // Sign-out successful.
-            setUser({});
+            setUser('');
             setSuccess(false)
           }).catch((error) => {
             // An error happened.

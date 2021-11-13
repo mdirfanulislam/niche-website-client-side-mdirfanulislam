@@ -22,13 +22,16 @@ const ManageAllOrders = () => {
     const handlingstatus=(id)=>{
         const confirmation=window.confirm('Are you sure to do this?');
         if(confirmation){
-          fetch(`https://floating-lowlands-50520.herokuapp.com/${id}`,{
+          fetch(`https://floating-lowlands-50520.herokuapp.com/allOrders/${id}`,{
        method:"PUT",
    })
    .then(res=>res.json())
    .then(data=>{
        if(data.modifiedCount){
-       setStatus(true)
+       setStatus(true);
+       fetch('https://floating-lowlands-50520.herokuapp.com/allOrders')
+       .then(res=>res.json())
+       .then(data=>setOrders(data))
        }
    })   
         }
@@ -41,7 +44,7 @@ const ManageAllOrders = () => {
     const handlingDelete=id=>{
         const confirmation=window.confirm('Are you sure to do this?');
         if(confirmation){
-          fetch(`https://floating-lowlands-50520.herokuapp.com/${id}`,{
+          fetch(`https://floating-lowlands-50520.herokuapp.com/allOrders/${id}`,{
        method:"DELETE",
    })
    .then(res=>res.json())
@@ -102,31 +105,16 @@ const ManageAllOrders = () => {
               <StyledTableCell align="right">{row.email}</StyledTableCell>
               <StyledTableCell align="right"> {row.carName}</StyledTableCell>
               <StyledTableCell align="right"> <button onClick={()=>handlingDelete(row._id)}> Delete   </button> </StyledTableCell>
-              <StyledTableCell align="right"> <button onClick={()=>handlingstatus(row._id)}> Pending   </button> </StyledTableCell>
-              {/* <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
+              <StyledTableCell align="right"> <button onClick={()=>handlingstatus(row._id)}> {row.status}  </button> </StyledTableCell>
+             
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-          {/* <div>
-          {
-              orders.map(data=> <div  className="divorder">
-                  <h2>{data.name}</h2>
-                  <h4>{data.email}</h4>
-                  <h2> {data.carName}</h2>
-                  <h3> id :{data._id}</h3>
-                 
-                  <button onClick={()=>handlingstatus(data._id)}>{data.status} </button>
-                  <button onClick={()=>handlingDelete(data._id)}> Delete   </button>
-              </div> 
-              )
-          }
-        </div> */}
+      
         </div>
     );
 };
 
 export default ManageAllOrders;
-// onClick={()=>handlingDeleting(data._id)}

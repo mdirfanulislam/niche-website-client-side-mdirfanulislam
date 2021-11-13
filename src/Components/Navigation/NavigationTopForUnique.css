@@ -1,3 +1,11 @@
 .bg-lighttt{
     background-image: linear-gradient(to right, rgb(246, 143, 9) , rgb(13, 189, 212));
 }
+.button{
+    background-color: rgb(206, 199, 199);
+    padding: 8px;
+    border:1px solid gray;
+    color: black;
+    border-radius: 4px;
+    margin-right: 4px;
+}

@@ -36,7 +36,7 @@ const NagigationTopForUnique = () => {
   { !user?.email ? <li className="nav-item listed">
    <Link to="/login" className="nav-link active" aria-current="page">Login</Link>
    </li> :  <li className="nav-item listed">
-   <Link to="/login" className="nav-link active" aria-current="page" onClick={signOutUser}>Logout</Link>
+   <button style={{borderRadius:'10px' ,color: "black"}}  className="nav-link active button" aria-current="page" onClick={signOutUser}>Logout</button>
    </li> }
  {
    user?.email &&   <li className="nav-item listed">

@@ -12,7 +12,7 @@ const AddAProducts = () => {
     const onSubmit=data=>{
         const confirm =window.confirm('Are you sure to add a new product ')
         if(confirm){
-          fetch('http://localhost:4000/cars',{
+          fetch('https://floating-lowlands-50520.herokuapp.com/cars',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

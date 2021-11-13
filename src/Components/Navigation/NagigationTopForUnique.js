@@ -22,9 +22,11 @@ const NagigationTopForUnique = () => {
    <li className="nav-item">
    <Link to="/explore" className="nav-link active" aria-current="page">Explore</Link>
    </li>
-   <li className="nav-item">
-   <Link to="/dashboard" className="nav-link active" aria-current="page">Dashboard</Link>
-   </li>
+   {
+          user.email && <li className="nav-item">
+          <Link to="/dashboard" className="nav-link active" aria-current="page">Dashboard</Link>
+          </li>
+        }
    {/* <li className="nav-item">
      <a className="nav-link" href="#">My orders</a>
    </li> */}

@@ -64,7 +64,7 @@ const handlingSubmit=e=>{
        success && <Alert severity="success">Login successfully </Alert> 
       }
        { 
-      error && <Alert severity="success"> {error} </Alert> 
+      error && <Alert severity="error"> {error} </Alert> 
       }
           </Typography>
           <Typography>

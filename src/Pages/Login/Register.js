@@ -12,7 +12,7 @@ import useAuth from '../Hooks/Auth/useAuth';
 import Alert from '@mui/material/Alert';
 const Register = () => {
  
-      const {emailNewAccount, success}=useAuth()
+      const {emailNewAccount, success,error}=useAuth()
       const [logindata,SetLoginData]=useState({});
       const history=useHistory()
     const handlingSubmit=e=>{
@@ -56,6 +56,9 @@ const Register = () => {
       <Button variant="contained" color="success" type="submit">Register</Button><br />
       { 
       success && <Alert severity="success">user register  in successfully </Alert> 
+      }
+      { 
+      error && <Alert severity="error"> {error} </Alert> 
       }
           </Typography>
           <Typography>

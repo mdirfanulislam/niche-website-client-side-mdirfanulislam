@@ -7,37 +7,28 @@ import { formControlLabelClasses } from "@mui/material";
 initiatingFirebase();
 
 const useFirebase=()=>{
-    const auth = getAuth();
+   
     const [user,setUser]=useState({});
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(true);
     const [success,setSuccess]=useState(false);
     const [admin,setAdmin]=useState(false);
-
+   const auth = getAuth();
 
     const emailNewAccount=(email,password,name,history)=>{
       setLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
      // Signed in 
-       
-        
         const newUser={email,displayName:name}
-
         setUser(newUser)
-
+        saveUserData(email,name,"POST")
         setSuccess(true)
-       
-        history.replace('/')
         updateProfile(auth.currentUser,
-           {displayName:name}).then(() => {
-            // Profile updated!
-            // ...
-            setUser(user)
-          }).catch((error) => {
-            setError(error)
-          })
-          saveUserData(email,name,"POST")
+           {displayName:name}).then(() => { }).catch((error) => { });
+           history.replace('/');
+           const user=userCredential.user;
+           setError('');
       // ...
       })
      .catch((error) => {
@@ -51,14 +42,16 @@ const useFirebase=()=>{
 
     // give access by login 
     const emailLogin=(email,password,history,location)=>{
-      setLoading(true)
-        signInWithEmailAndPassword(auth, email, password)
+   setLoading(true)
+    signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
-      const destiny =location?.state?.from;
-      history.push(destiny)
     setUser(userCredential.user);
     setSuccess(true)
+    const destination=location?.state?.from;
+    history.replace(destination)
+    
+    
     // ...
   })
   .catch((error) => {
@@ -67,7 +60,6 @@ const useFirebase=()=>{
   .finally(()=>setLoading(false))
 
     }
-
     const signOutUser=()=>{
       setLoading(true)
         signOut(auth).then(() => {
@@ -101,7 +93,7 @@ const useFirebase=()=>{
 
 
    useEffect(()=>{
-     fetch(`http://localhost:4000/admins/${user.email}`)
+     fetch(`https://floating-lowlands-50520.herokuapp.com/admins/${user.email}`)
      .then(res=>res.json())
      .then(data=>{
      setAdmin(data.admin)
@@ -110,7 +102,7 @@ const useFirebase=()=>{
    
     const saveUserData=(email,displayname,method)=>{
       const user={email,displayName:displayname};
-      fetch('http://localhost:4000/registerUsers',{
+      fetch('https://floating-lowlands-50520.herokuapp.com/registerUsers',{
         method:method,
         headers:{
           'content-type':'application/json'

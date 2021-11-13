@@ -11,14 +11,14 @@ import { Container } from '@mui/material';
 const Home = () => {
     const [cars,setCars]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:4000/cars')
+        fetch('https://floating-lowlands-50520.herokuapp.com/cars')
         .then(res=>res.json())
         .then(data=>setCars(data.slice(0,6)))
     },[]);
 
     const [reviews,setReviews]=useState([])
      useEffect(()=>{
-        fetch('http://localhost:4000/reviews')
+        fetch('https://floating-lowlands-50520.herokuapp.com/reviews')
         .then(res=>res.json())
         .then(data=>setReviews(data))
         

@@ -8,7 +8,7 @@ const Review = () => {
      console.log(data);
      const confirmation =window.confirm('are you sure to submit this? ? ? ');
      if(confirmation){
-       fetch('http://localhost:4000/reviews',{
+       fetch('https://floating-lowlands-50520.herokuapp.com/reviews',{
         method:"POST",
         headers:{
             "content-type":'application/json'

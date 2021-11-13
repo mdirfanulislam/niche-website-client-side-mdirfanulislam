@@ -50,7 +50,6 @@ function Dashboard(props) {
       <Link to="/home"><Button variant="contained" color="success" sx={{mx:2, my:1}}>Home</Button> </Link>
       {
         !admin ? <Box>
-          <Link to={`${url}`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Dashboard</Button> </Link>
       <Link to={`${url}/myOrder`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>My Order</Button> </Link>
       <Link to={`${url}/review`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Review</Button> </Link>
       <Link to={`${url}/payment`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Payment</Button> </Link>
@@ -98,6 +97,7 @@ function Dashboard(props) {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
              {admin && <h3>Admin Name : {user.displayName}</h3> }
+             {!admin && <h3> Users Name :{user.displayName} </h3> }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -140,7 +140,7 @@ function Dashboard(props) {
         <Toolbar />
         <Switch>
         <Route exact path={path}>
-       <h3> Hello I am checking your authentification here please wait here some moment for the confirmation</h3>
+        {admin ? <ManageAllOrders></ManageAllOrders> :  <MyOrder></MyOrder> }
         </Route>
        
         <Route exact path={`${path}/payment`}>

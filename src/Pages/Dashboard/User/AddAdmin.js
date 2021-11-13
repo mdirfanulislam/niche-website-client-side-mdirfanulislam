@@ -14,7 +14,7 @@ const AddAdmin = () => {
         const onSubmit =data=> {
             const confirmation=window.confirm('Do you wanna make him admin ? ')
             if(confirmation){
-                fetch('http://localhost:4000/makeAdmin',{
+                fetch('https://floating-lowlands-50520.herokuapp.com/makeAdmin',{
            method:'PUT',
            headers:{
                'content-type':'application/json'

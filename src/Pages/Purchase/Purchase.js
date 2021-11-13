@@ -15,7 +15,7 @@ const Purchase = () => {
     const {user}=useAuth()
     const [car,setCar]=useState({});
     useEffect(()=>{
-        fetch(`http://localhost:4000/cars/${id}`)
+        fetch(`https://floating-lowlands-50520.herokuapp.com/cars/${id}`)
         .then(res=>res.json())
         .then(data=>setCar(data))
     },[]);
@@ -24,7 +24,7 @@ const Purchase = () => {
         // console.log(data)
         data.carName=car.name;
         data.status="pending"
-        fetch('http://localhost:4000/users',{
+        fetch('https://floating-lowlands-50520.herokuapp.com/users',{
             method:"POST",
             headers:{
                 "content-type":'application/json'

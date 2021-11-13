@@ -9,7 +9,7 @@ import SingleCar from './../Home/SingleCar/SingleCar';
 const Explore = () => {
     const [cars,setCars]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:4000/explore')
+        fetch('https://floating-lowlands-50520.herokuapp.com/explore')
         .then(res=>res.json())
         .then(data=>setCars(data))
     },[])

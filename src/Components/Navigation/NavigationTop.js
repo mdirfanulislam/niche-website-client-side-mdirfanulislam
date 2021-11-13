@@ -21,9 +21,11 @@ const NavigationTop = () => {
         <li className="nav-item">
         <Link to="/explore" className="nav-link active" aria-current="page">Explore</Link>
         </li>
-        <li className="nav-item">
-        <Link to="/dashboard" className="nav-link active" aria-current="page">Dashboard</Link>
-        </li>
+        {
+          user.email && <li className="nav-item">
+          <Link to="/dashboard" className="nav-link active" aria-current="page">Dashboard</Link>
+          </li>
+        }
       
        
       </ul>

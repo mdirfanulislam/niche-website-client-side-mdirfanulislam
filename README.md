@@ -14,3 +14,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Admin has power to add new products and to delete and confirm the pending order here 
 ### It has a explore page for the car lovers who love the car very much . 
  
+### What can a user do 
+ A regular user will see the cars and review and to purchase car they have to login or register in the website. 
+ Then they can see the details and can order any item .Anyone can see the order list and can remove any of them. They can add review  too . 
+ ### what can a admin do . 
+ An Admin he can remove anyone's order and can update the status their. Also he can add new car, delete any car. He can make anyone admin . Overall he will have a different dashboard.
+ 

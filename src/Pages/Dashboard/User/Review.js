@@ -8,7 +8,7 @@ const Review = () => {
      console.log(data);
      const confirmation =window.confirm('are you sure to submit this? ? ? ');
      if(confirmation){
-       fetch('https://floating-lowlands-50520.herokuapp.com/reviews',{
+       fetch('https://mighty-everglades-10983.herokuapp.com/reviews',{
         method:"POST",
         headers:{
             "content-type":'application/json'

@@ -2,8 +2,9 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import './Review.css'
 import Rating from 'react-rating';
+
 const Review = (props) => {
-    const {name,description,rating}=props.data;
+    const {name, description, rating}=props.data;
     return (
         
           <Grid item sx={{padding:'0px', margin:'0px' }} xs={6} sm={6} md={4} lg={4} className="singleCar reviewstyle">

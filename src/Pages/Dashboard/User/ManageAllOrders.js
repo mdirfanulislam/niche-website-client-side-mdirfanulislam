@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
     const [orders,setOrders]=useState([]);
     const [status,setStatus]=useState(false)
     useEffect(()=>{
-        fetch('https://floating-lowlands-50520.herokuapp.com/allOrders')
+        fetch('https://mighty-everglades-10983.herokuapp.com/allOrders')
         .then(res=>res.json())
         .then(data=>setOrders(data))
     },[]);
@@ -21,18 +21,18 @@ const ManageAllOrders = () => {
     const handlingstatus=(id)=>{
         const confirmation=window.confirm('Are you sure to do this?');
         if(confirmation){
-          fetch(`https://floating-lowlands-50520.herokuapp.com/allOrders/${id}`,{
+          fetch(`https://mighty-everglades-10983.herokuapp.com/allOrders/${id}`,{
        method:"PUT",
-   })
+    })
    .then(res=>res.json())
    .then(data=>{
        if(data.modifiedCount){
        setStatus(true);
-       fetch('https://floating-lowlands-50520.herokuapp.com/allOrders')
+       fetch('https://mighty-everglades-10983.herokuapp.com/allOrders')
        .then(res=>res.json())
        .then(data=>setOrders(data))
        }
-   })   
+    })   
         }
         else{
 
@@ -43,17 +43,17 @@ const ManageAllOrders = () => {
     const handlingDelete=id=>{
         const confirmation=window.confirm('Are you sure to do this?');
         if(confirmation){
-          fetch(`https://floating-lowlands-50520.herokuapp.com/allOrders/${id}`,{
+          fetch(`https://mighty-everglades-10983.herokuapp.com/allOrders/${id}`,{
        method:"DELETE",
-   })
-   .then(res=>res.json())
-   .then(data=>{
+    })
+    .then(res=>res.json())
+    .then(data=>{
        if(data.deletedCount){
       alert(' Yes , deleted successfully ');
       const newdata= orders.filter(data=>data._id!==id);
       setOrders(newdata);
        }
-   })   
+    })   
         }
         else{
 
@@ -85,32 +85,32 @@ const ManageAllOrders = () => {
           <h3> Here you can manage all of your order. Total Order:  {orders.length} </h3>
 
           <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Orderer</StyledTableCell>
-            <StyledTableCell align="right"> Customers email</StyledTableCell>
-            <StyledTableCell align="right">Customers Product</StyledTableCell>
-            <StyledTableCell align="right">Deletation</StyledTableCell>
-            <StyledTableCell align="right">Status</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {orders.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.email}</StyledTableCell>
-              <StyledTableCell align="right"> {row.carName}</StyledTableCell>
-              <StyledTableCell align="right"> <button onClick={()=>handlingDelete(row._id)}> Delete   </button> </StyledTableCell>
-              <StyledTableCell align="right"> <button onClick={()=>handlingstatus(row._id)}> {row.status}  </button> </StyledTableCell>
-             
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Orderer</StyledTableCell>
+                  <StyledTableCell align="right"> Customers email</StyledTableCell>
+                  <StyledTableCell align="right">Customers Product</StyledTableCell>
+                  <StyledTableCell align="right">Deletation</StyledTableCell>
+                  <StyledTableCell align="right">Status</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {orders.map((row) => (
+                  <StyledTableRow key={row.name}>
+                    <StyledTableCell component="th" scope="row">
+                      {row.name}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{row.email}</StyledTableCell>
+                    <StyledTableCell align="right"> {row.carName}</StyledTableCell>
+                    <StyledTableCell align="right"> <button onClick={()=>handlingDelete(row._id)}> Delete   </button> </StyledTableCell>
+                    <StyledTableCell align="right"> <button onClick={()=>handlingstatus(row._id)}> {row.status}  </button> </StyledTableCell>
+                  
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
       
         </div>
     );

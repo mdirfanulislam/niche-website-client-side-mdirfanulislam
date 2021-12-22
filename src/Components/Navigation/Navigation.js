@@ -6,8 +6,8 @@ const Navigation = () => {
     
     return (
         <div >
-              <NavigationTop></NavigationTop>
-<img  className="img-fluid" src={header} alt="" />
+            <NavigationTop></NavigationTop>
+            <img  className="img-fluid" src={header} alt="" />
         </div>
     );
 };

@@ -19,12 +19,9 @@ function App() {
           <Route exact path="/">
            <Home></Home>
           </Route>
-
           <Route path="/home">
            <Home></Home>
           </Route>
-
-          
           <Route  path="/explore">
          <Explore></Explore>
           </Route>
@@ -37,11 +34,9 @@ function App() {
           <PrivateRoute exact path="/purchase/:id">
           <Purchase></Purchase>
           </PrivateRoute>
-
           <PrivateRoute  path="/dashboard">
          <Dashboard></Dashboard>
           </PrivateRoute>
-
           <Route exact path="*">
          <None></None>
           </Route>

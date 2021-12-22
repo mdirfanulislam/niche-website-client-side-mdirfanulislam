@@ -1,12 +1,11 @@
 const firebaseConfig = {
-
-    apiKey: "AIzaSyCcJYLDPicWEURGruQ0Y_TaXdKppQo9Jt8",
-    authDomain: "carhub-72958.firebaseapp.com",
-    projectId: "carhub-72958",
-    storageBucket: "carhub-72958.appspot.com",
-    messagingSenderId: "848896389775",
-    appId: "1:848896389775:web:9993fd43161d82bdca36fa"
-  };
+  apiKey: "AIzaSyD9FP-bLNP7kEJMwaMJcVo-2Lj1WMbPwHI",
+  authDomain: "niche-website-mdirfanulislam.firebaseapp.com",
+  projectId: "niche-website-mdirfanulislam",
+  storageBucket: "niche-website-mdirfanulislam.appspot.com",
+  messagingSenderId: "819735780051",
+  appId: "1:819735780051:web:819c67f52b42c58f559226",
+  measurementId: "G-JG5DDWHZD7"
+};
 
 export default firebaseConfig;
-  

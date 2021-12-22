@@ -6,17 +6,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button  from '@mui/material/Button';
-import { BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch} from "react-router-dom";
 import Pay from './User/Pay';
 import AddAdmin from './User/AddAdmin';
 import MyOrder from './User/MyOrder';
@@ -40,29 +34,26 @@ function Dashboard(props) {
     
   const drawer = (
     <div>
-     
       <Toolbar />
       {user.email && <h5>Email:{user.email} </h5> }
       <Divider />
-      <Link to="/home"><Button variant="contained" color="success" sx={{mx:2, my:1}}>Home</Button> </Link>
+      <Link to="/home"><Button variant="contained" sx={{mx:2, my:1}}>Home</Button> </Link>
       {
         !admin ? <Box>
-      <Link to={`${url}/myOrder`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>My Order</Button> </Link>
-      <Link to={`${url}/review`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Review</Button> </Link>
-      <Link to={`${url}/payment`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Payment</Button> </Link>
+      <Link to={`${url}/myOrder`}><Button variant="contained" sx={{mx:2 , my:1}}>My Order</Button> </Link>
+      <Link to={`${url}/review`}><Button variant="contained" sx={{mx:2 , my:1}}>Review</Button> </Link>
+      <Link to={`${url}/payment`}><Button variant="contained" sx={{mx:2 , my:1}}>Payment</Button> </Link>
         </Box> :
       <Box> 
-     <Link to={`${url}/addAdmin`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Add Admin</Button> </Link>
-      <Link to={`${url}/addProducts`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Add A Products</Button> </Link>
-      <Link to={`${url}/manageAllOrders`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>Manage All Orders</Button> </Link>
-      <Link to={`${url}/manageProducts`}><Button variant="contained" color="success" sx={{mx:2 , my:1}}>ManageProducts</Button> </Link>
+     <Link to={`${url}/addAdmin`}><Button variant="contained" sx={{mx:2 , my:1}}>Add Admin</Button> </Link>
+      <Link to={`${url}/addProducts`}><Button variant="contained" sx={{mx:2 , my:1}}>Add A Products</Button> </Link>
+      <Link to={`${url}/manageAllOrders`}><Button variant="contained" sx={{mx:2 , my:1}}>Manage All Orders</Button> </Link>
+      <Link to={`${url}/manageProducts`}><Button variant="contained" sx={{mx:2 , my:1}}>ManageProducts</Button> </Link>
         </Box>
       }
-      
-      
       <Divider />
       
-     <Button variant="contained" onClick={signOutUser} color="success" sx={{mx:2 , my:1}}>Logout</Button>
+     <Button variant="contained" onClick={signOutUser} color="" sx={{mx:2 , my:1}}>Logout</Button>
       <Divider />
       
     </div>

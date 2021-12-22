@@ -5,8 +5,9 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import photo from '../../../../images/carmake.jpg'
 import './HomeExtra.css'
+
 const HomeExtra = () => {
-    const Item = styled(Paper)(({ theme }) => ({
+    styled(Paper)(({ theme }) => ({
         ...theme.typography.body2,
         padding: theme.spacing(1),
         textAlign: 'center',
@@ -14,7 +15,7 @@ const HomeExtra = () => {
       }));
 
     return (
-        <Box sx={{ flexGrow: 1 }} >
+      <Box sx={{ flexGrow: 1 }} >
             <h2  className='my-5 text-success'> Finalize your Idea With us.</h2>
         <Grid container className='boxstyle my-5' spacing={2} sx={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:"10px"}}>
           <Grid item xs={12} sm={12} md={7} lg={7}>
